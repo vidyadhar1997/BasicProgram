@@ -6,35 +6,36 @@ namespace BasicPrograms
 {
     class MergeSort
     {
-        static public void doMerge(int[] numbers, int left, int mid, int right)
+        public static void doMerge(int[] numbers, int left, int mid, int right)
         {
             int[] temp = new int[25];
-            int i, left_end, num_elements, tmp_pos;
-            left_end = (mid - 1);
-            tmp_pos = left;
-            num_elements = (right - left + 1);
+            int i, leftEnd, numElements, temPos;
+            leftEnd = (mid - 1);
+            temPos = left;
+            numElements = (right - left + 1);
 
-            while ((left <= left_end) && (mid <= right))
+            while ((left <= leftEnd) && (mid <= right))
             {
                 if (numbers[left] <= numbers[mid])
-                    temp[tmp_pos++] = numbers[left++];
+                    temp[temPos++] = numbers[left++];
                 else
-                    temp[tmp_pos++] = numbers[mid++];
+                    temp[temPos++] = numbers[mid++];
             }
 
-            while (left <= left_end)
-                temp[tmp_pos++] = numbers[left++];
+            while (left <= leftEnd)
+                temp[temPos++] = numbers[left++];
 
             while (mid <= right)
-                temp[tmp_pos++] = numbers[mid++];
+                temp[temPos++] = numbers[mid++];
 
-            for (i = 0; i < num_elements; i++)
+            for (i = 0; i < numElements; i++)
             {
                 numbers[right] = temp[right];
                 right--;
             }
         }
-        static public void mergeSortRecursive(int[] numbers, int left, int right)
+
+        public static void mergeSortRecursive(int[] numbers, int left, int right)
         {
             int mid;
             if (right > left)
